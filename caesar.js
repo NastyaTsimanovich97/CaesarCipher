@@ -3,6 +3,7 @@
 const commander = require('commander');
 const { readInputFile } = require('./utils/readFile.js');
 const { code } = require('./utils/code.js');
+const { writeOutputFile } = require('./utils/writeFile');
 
 
 commander
@@ -24,6 +25,8 @@ commander
     const inputData = await readInputFile(inputFileName);
 
     const encodeData = code(inputData, value.action, value.shift);
+
+    writeOutputFile(value?.output, encodeData);
     
   })
 
