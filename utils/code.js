@@ -5,6 +5,16 @@ const upperCaseAlphabet = require('./upperCaseAlphabet');
 
 exports.code = (data, type, shift) => {
   let shiftNumber = Number(shift);
+
+  if (!Number.isInteger(shiftNumber)) {
+    console.error('Please enter only integer number');
+    process.env(9);
+  }
+
+  if (shiftNumber < 0) {
+    shiftNumber = size(lowerCaseAlphabet) + shiftNumber;
+  }
+
   const dataArray = split(data, '');
 
   if (shiftNumber > size(lowerCaseAlphabet)) {
