@@ -9,7 +9,7 @@ exports.writeOutputFile = (fileName, data) => {
       console.error(errorText);
       readlineStreams.writeStringStdout(data);
     } else {
-      fs.writeFile(fileName, `${data}`, 'utf8', (err, data) => {
+      fs.writeFile(fileName, `${readData} ${data}`, 'utf8', (err, data) => {
         if (err) {
           console.error(errorText);
           readlineStreams.writeStringStdout(data);
