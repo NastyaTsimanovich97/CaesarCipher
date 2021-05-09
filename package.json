@@ -1,0 +1,23 @@
+{
+  "name": "caesarcipher",
+  "version": "1.0.0",
+  "description": "Caesar cipher CLI tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NastyaTsimanovich97/CaesarCipher.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NastyaTsimanovich97/CaesarCipher/issues"
+  },
+  "homepage": "https://github.com/NastyaTsimanovich97/CaesarCipher#readme",
+  "dependencies": {
+    "commander": "^7.2.0",
+    "lodash": "^4.17.21"
+  }
+}
