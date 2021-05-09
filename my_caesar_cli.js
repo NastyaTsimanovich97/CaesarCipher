@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const commander = require('commander');
+const { trim } = require('lodash');
 
 const { readInputFile } = require('./utils/readFile.js');
 const { code } = require('./utils/code.js');
@@ -17,11 +18,13 @@ commander
   .option('-o, --output [file]', 'path to output file')
   .option('-a, --action [action_type]', 'action type encode/decode')
   .action(async(value) => {
-    console.log(value)
     if (!value?.action || !value?.shift) {
       process.exit(9);
     }
-    const inputFileName = value?.input;
+
+    const inputFileName = trim(value?.input);
+
+    const outputFileName = trim(value?.output);
 
     let inputData = '';
 
@@ -35,14 +38,12 @@ commander
       }
     }
 
-    // console.log('inputData', inputData);
-
     const encodeData = code(inputData, value.action, value.shift);
 
-    if (!value?.output) {
+    if (!outputFileName) {
       readlineStreams.writeStringStdout(encodeData);
     } else {
-      writeOutputFile(value?.output, encodeData);
+      writeOutputFile(outputFileName, encodeData);
     }
     
   })

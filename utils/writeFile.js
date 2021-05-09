@@ -9,11 +9,14 @@ exports.writeOutputFile = (fileName, data) => {
       console.error(errorText);
       readlineStreams.writeStringStdout(data);
     } else {
-      fs.writeFile(fileName, `${readData} ${data}`, 'utf8', (err, data) => {
-        if (err) {
-          console.error(errorText);
-          readlineStreams.writeStringStdout(data);
-        }
+      const writeableStream = fs.createWriteStream(fileName);
+      writeableStream.write(`${readData}${readData ? ' ' : ''}${data}`);
+      writeableStream.on('error', (err) => {
+        console.error(errorText);
+        readlineStreams.writeStringStdout(data);
+      });
+      writeableStream.on('end', () => {
+        process.exit(0);
       });
     }
   });
