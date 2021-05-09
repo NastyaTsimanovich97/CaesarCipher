@@ -1,4 +1,4 @@
-# CaesarCipher
+# Caesar Cipher
 Caesar cipher CLI tool.
 
 This tool is designed to encode or decode strings with [Caesar cipher](https://en.wikipedia.org/wiki/Caesar_cipher).
